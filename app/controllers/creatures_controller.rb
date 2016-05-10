@@ -15,10 +15,12 @@ class CreaturesController < ApplicationController
   # GET /creatures/new
   def new
     @creature = Creature.new
+    @tags = Tag.all
   end
 
   # GET /creatures/1/edit
   def edit
+  	@tags = Tag.all
   end
 
   # POST /creatures
@@ -69,6 +71,6 @@ class CreaturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def creature_params
-      params.require(:creature).permit(:name, :description)
+      params.require(:creature).permit(:name, :description, tag_ids: [])
     end
 end

@@ -16,6 +16,11 @@
       <tr>
         <td><%= creature.name %></td>
         <td><%= creature.description %></td>
+        <td>
+        <% creature.tags.each do |tag| %>
+        	<li><%= tag.name %></li>
+        <% end %>
+        </td>
         <td><%= link_to 'Show', creature %></td>
         <td><%= link_to 'Edit', edit_creature_path(creature) %></td>
         <td><%= link_to 'Destroy', creature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
